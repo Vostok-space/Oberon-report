@@ -114,7 +114,7 @@ details[open] > summary:after {
   table { margin-left: 20px; }
 }
 @media (max-width: 400px) {
-  div#content { padding: 0;}
+  div#content { padding: 5px;}
   body {margin: 0;}
   pre { margin-left: 10px; }
   table { margin-left: 10px; }
