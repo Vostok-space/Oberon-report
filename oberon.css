@@ -82,7 +82,7 @@ body > label:first-child {
   font-size: 0.8em;
 }
 
-div#content > pre:last-child,  div#content > .page:last-child > pre:last-child {
+#syntax ~ pre {
   margin-left: 30px;
 }
 
@@ -108,12 +108,12 @@ details[open] > summary:after {
 @media (max-width: 500px) {
   div#content { padding  : 0 10px 10px 10px; }
   body {margin: 5px;}
-  pre { margin-left: 20px; }
+  pre, #syntax ~ pre { margin-left: 20px; }
   table { margin-left: 20px; }
 }
 @media (max-width: 400px) {
   div#content { padding: 5px;}
   body {margin: 0;}
-  pre { margin-left: 10px; }
+  pre, #syntax ~ pre { margin-left: 10px; }
   table { margin-left: 10px; }
 }
