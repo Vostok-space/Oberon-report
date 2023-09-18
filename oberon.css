@@ -6,7 +6,6 @@ div#content {
   margin   : auto;
   padding  : 0 40px 40px 40px;
   scroll   : auto;
-  font-size: 1em;
   resize   : horizontal;
   z-index  : 1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -73,7 +72,6 @@ td, th {
 pre {
   margin-left: 50px;
   overflow-x: auto;
-  font-size: 0.9em;
 }
 
 body > label:first-child {
