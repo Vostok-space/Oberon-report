@@ -1,6 +1,6 @@
 html { background-color: #606060; }
 
-div#content {
+div.content {
   min-width: 100px;
   max-width: 680px;
   margin   : auto;
@@ -10,8 +10,9 @@ div#content {
   z-index  : 1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background-color: #FFFFFF;
-
 }
+
+div#rudoc { display: none; }
 
 div.page {
   max-width: 100%;
@@ -36,18 +37,11 @@ a {
   font-family: inherit;
 }
 
-a:hover {
-  text-decoration-color: rgba(0, 0, 0, 0.2);
-}
+a:hover { text-decoration-color: rgba(0, 0, 0, 0.2); }
 
-p {
-  text-align: justify;
-}
+p {  text-align: justify; }
 
-h4 {
-  font-style: italic;
-  font-weight: normal;
-}
+h4 { font-style: italic; font-weight: normal; }
 
 th {
   font-weight: normal;
@@ -55,35 +49,42 @@ th {
   border-bottom: 1px solid black;
 }
 
+td, th { padding: 2px 10px; }
+
 table {
   border-collapse: collapse;
   margin-left: 40px;
 }
 
-div {
-  max-width:100%;
-  overflow-x: auto;
-}
-
-td, th {
-  padding: 2px 10px;
-}
+div { max-width:100%; overflow-x: auto; }
 
 pre {
   margin-left: 50px;
   overflow-x: auto;
+  font-size: 0.98em;
 }
 
-body > label:first-child {
-  position: absolute; 
-  right:  10px;
-  top  : 10px;
+div.space {
+  margin:0;
+  padding:0;
+}
+
+div.doc {
+  padding: 0;
+  margin: auto;
+  margin-top: 0;
+}
+
+div.doc > :first-child {
+  position: relative; 
+  left:  10px;
+  top  : 0px;
   color: #DDD;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
 #syntax ~ pre {
-  margin-left: 30px;
+  margin-left: 25px;
 }
 
 details > summary {
@@ -100,19 +101,53 @@ details[open] > summary:after {
   content: '-';
 }
 
+code {
+  display: inline-block;
+  font: inherit;
+  white-space: nowrap;
+}
+
+body {
+  display   : flex;
+  margin    : 0;
+  direction : rtl;
+}
+
+body > * { direction: ltr; }
+
+a.self::before { content: attr(href); }
+
+body > div.doc:nth-child(2) > div.content {
+  padding-right: 40;
+}
+
+#onlyeng, #onlyrus {
+  cursor: pointer;
+}
+
+@media (max-width: 1360px) {
+  body.both > div.doc:nth-child(2) > div.content {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 1100px) {
+  div.content > :first-child { position: static; max-width: 160px;}
+}
+
 @media (max-width: 600px) {
-  div#content { padding  : 0 20px 20px 20px; }
+  div.content { padding  : 0 20px 20px 20px; }
   pre { margin-left: 30px; }
   table { margin-left: 30px; }
 }
 @media (max-width: 500px) {
-  div#content { padding  : 0 10px 10px 10px; }
+  div.content { padding  : 0 10px 10px 10px; }
   body {margin: 5px;}
   pre, #syntax ~ pre { margin-left: 20px; }
   table { margin-left: 20px; }
 }
 @media (max-width: 400px) {
-  div#content { padding: 5px;}
+  div.content { padding: 5px;}
   body {margin: 0;}
   pre, #syntax ~ pre { margin-left: 10px; }
   table { margin-left: 10px; }
