@@ -131,10 +131,6 @@ body > div.doc:nth-child(2) > div.content {
   }
 }
 
-@media (max-width: 1100px) {
-  div.content > :first-child { position: static; max-width: 160px;}
-}
-
 @media (max-width: 600px) {
   div.content { padding  : 0 20px 20px 20px; }
   pre { margin-left: 30px; }
