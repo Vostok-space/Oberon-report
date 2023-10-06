@@ -1,5 +1,16 @@
 html { background-color: #606060; }
 
+body {
+  display   : flex;
+  margin    : 0;
+  direction : rtl;
+}
+body > * { direction: ltr; }
+
+body > div.doc:nth-child(2) > div.content {
+  padding-right: 40;
+}
+
 div.content {
   min-width: 100px;
   max-width: 680px;
@@ -77,29 +88,25 @@ div.doc {
 
 div.doc > :first-child {
   position: relative; 
-  left:  10px;
-  top  : 0px;
+  left: 10px;
+  top: 0px;
   color: #DDD;
   font-size: 0.9em;
 }
 
-#syntax ~ pre {
+#syntax ~ pre, #rsyntax ~ pre {
   margin-left: 25px;
+  font-size: 0.9em;
 }
 
-details > summary {
-  list-style: none;
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
-details > summary:after {
-  content: '+';
-  margin-left: 10px;
-  opacity: 0.4;
-}
-
-details[open] > summary:after {
-  content: '-';
-}
+details       > summary       { list-style: none; }
+details       > summary:after { content: '+';  margin-left: 10px; opacity: 0.4; }
+details[open] > summary:after { content: '-'; }
 
 code {
   display: inline-block;
@@ -107,28 +114,15 @@ code {
   white-space: nowrap;
 }
 
-body {
-  display   : flex;
-  margin    : 0;
-  direction : rtl;
-}
-
-body > * { direction: ltr; }
-
 a.self::before { content: attr(href); }
 
-body > div.doc:nth-child(2) > div.content {
-  padding-right: 40;
-}
-
-#onlyeng, #onlyrus {
-  cursor: pointer;
-}
-
 @media (max-width: 1360px) {
-  body.both > div.doc:nth-child(2) > div.content {
+  .both > div.doc:nth-child(2) > div.content {
     padding-right: 0;
   }
+  .both div.content { padding  : 0 20px 20px 20px; }
+  .both pre {margin-left: 20px;}
+  .both table {margin-left: 20px;}
 }
 
 @media (max-width: 600px) {

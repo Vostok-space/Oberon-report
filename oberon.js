@@ -74,7 +74,20 @@ window.onload = function() {
     return label1.onclick;
   }
 
+  function closeDetails() {
+    var d, i;
+    d = document.getElementsByTagName('details');
+    i = d.length;
+    while (i > 0) {
+      i -= 1;
+      d[i].removeAttribute('open');
+    }
+  }
+
   var torus, onrus, oneng, eng, rus;
+
+  closeDetails();
+
   onrus = initToggle('togglerus', 'rudoc', 'toggleeng');
   torus = initSwitch('onlyrus', 'rudoc', 'toggleeng', 'endoc');
   oneng = initToggle('toggleeng', 'endoc', 'togglerus');
