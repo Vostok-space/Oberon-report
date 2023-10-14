@@ -16,8 +16,6 @@ div.content {
   max-width: 680px;
   margin   : auto;
   padding  : 0 40px 40px 40px;
-  scroll   : auto;
-  resize   : horizontal;
   z-index  : 1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background-color: #FFFFFF;
@@ -33,7 +31,7 @@ div.page {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 40px 40px 40px 40px;
   margin: 10px 0;
-  overflow-y: auto;
+
   background-color: #FFFFFF;
 }
 
@@ -84,6 +82,7 @@ div.doc {
   padding: 0;
   margin: auto;
   margin-top: 0;
+  overflow-x: hidden;
 }
 
 div.doc > :first-child {
