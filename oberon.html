@@ -247,9 +247,7 @@ length  =  ConstExpression.
 </pre>
 
 <p>A declaration of the form</p>
-<pre>
-ARRAY N0, N1, ..., Nk OF T
-</pre>
+<pre>ARRAY N0, N1, ..., Nk OF T</pre>
 <p>is understood as an abbreviation of the declaration</p>
 <pre>
 ARRAY N0 OF
@@ -298,9 +296,7 @@ END
 
 <p>Variables of a pointer type <em>P</em> assume as values pointers to variables of some type <em>T</em>. It must be a record type. The pointer type <em>P</em> is said to be <em>bound to T</em>, and <em>T</em> is the <em>pointer base type of P</em>. Pointer types inherit the extension relation of their base types, if there is any. If a type <em>T</em> is an extension of <em>T0</em> and <em>P</em> is a pointer type bound to <em>T</em>, then <em>P</em> is also an extension of <em>P0</em>, <em>the pointer type bound to T0</em>.</p>
 
-<pre>
-PointerType  =  POINTER TO type.
-</pre>
+<pre>PointerType  =  POINTER TO type.</pre>
 
 <p>If a type <em>P</em> is defined as POINTER TO T, the identifier <em>T</em> can be declared textually following the declaration of <em>P</em>, but [if so] it must lie within the same scope.</p>
 
@@ -311,18 +307,14 @@ PointerType  =  POINTER TO type.
 
 <p>Variables of a procedure type <em>T</em> have a procedure (or NIL) as value. If a procedure <em>P</em> is assigned to a procedure variable of type <em>T</em>, the (types of the) formal parameters of <em>P</em> must be the same as those indicated in the formal parameters of <em>T</em>. The same holds for the result type in the case of a function procedure (see <a href='#10.1'>10.1</a>). <em>P</em> must not be declared local to another procedure, and neither can it be a standard procedure.</p>
 
-<pre>
-ProcedureType = PROCEDURE [FormalParameters].
-</pre>
+<pre>ProcedureType = PROCEDURE [FormalParameters].</pre>
 
 
 <h2 id='7.'>7. Variable declarations</h2>
 
 <p>Variable declarations serve to introduce variables and associate them with identifiers that must be unique within the given scope. They also serve to associate fixed data types with the variables.</p>
 
-<pre>
-VariableDeclaration  =  IdentList ":" type.
-</pre>
+<pre>VariableDeclaration  =  IdentList ":" type.</pre>
 
 <p>Variables whose identifiers appear in the same list are all of the same type. Examples of variable declarations (refer to examples in Ch. <a href='#6.'>6</a>):</p>
 
@@ -430,9 +422,7 @@ ActualParameters = "(" [ExpList] ")".
 
 <p>The operators DIV and MOD apply to integer operands only. Let <code>q = x DIV y</code>, and <code>r = x MOD y</code>. Then quotient <em>q</em> and remainder <em>r</em> are defined by the equation</p>
 
-<pre>
-X = q*y + r         0 &lt;= r &lt; y
-</pre>
+<pre>X = q*y + r         0 &lt;= r &lt; y</pre>
 
 
 <h4><a id='8.2.3'>8.2.3 Set operators</a></h4>
@@ -502,9 +492,7 @@ statement = [assignment | ProcedureCall | IfStatement |
 <h3><a id='9.1'>9.1 Assignments</a></h3>
 
 <p>The assignment serves to replace the current value of a variable by a new value specified by an expression. The assignment operator is written as ":=" and pronounced as <em>becomes</em>.</p>
-<pre>
-assignment = designator ":=" expression.
-</pre>
+<pre>assignment = designator ":=" expression.</pre>
 
 <p>If a value parameter is structured (of array or record type), no assignment to it or to its elements are permitted. Neither may assignments be made to imported variables.</p>
 
@@ -536,9 +524,7 @@ w[i+1].ch := "A"
 
 <p>In the case of variable parameters, the actual parameter must be a designator denoting a variable. If it designates an element of a structured variable, the selector is evaluated when the formal/actual parameter substitution takes place, i.e. before the execution of the procedure. If the parameter is a value parameter, the corresponding actual parameter must be an expression. This expression is evaluated prior to the procedure activation, and the resulting value is assigned to the formal parameter which now constitutes a local variable (see also <a href='#10.1'>10.1</a>).</p>
 
-<pre>
-ProcedureCall = designator [ActualParameters].
-</pre>
+<pre>ProcedureCall = designator [ActualParameters].</pre>
 
 <div><p>Examples of procedure calls:</p>
 <pre>
@@ -551,9 +537,7 @@ INC(w[k].count)
 
 <p>Statement sequences denote the sequence of actions specified by the component statements which are separated by semicolons.</p>
 
-<pre>
-StatementSequence = statement {";" statement}.
-</pre>
+<pre>StatementSequence = statement {";" statement}.</pre>
 
 
 <h3><a id='9.4'>9.4 If statements</a></h3>
@@ -651,9 +635,7 @@ END
 
 <p>A repeat statement specifies the repeated execution of a statement sequence until a condition is satisfied. The statement sequence is executed at least once.<p>
 
-<pre>
-RepeatStatement = REPEAT StatementSequence UNTIL expression.
-</pre>
+<pre>RepeatStatement = REPEAT StatementSequence UNTIL expression.</pre>
 
 <h3><a id='9.8'>9.8 For statements</a></h3>
 
@@ -725,9 +707,7 @@ FormalType = {ARRAY OF} qualident.
 
 <p>If the formal parameter's type is specified as</p>
 
-<pre>
-ARRAY OF T
-</pre>
+<pre>ARRAY OF T</pre>
 
 <p>the parameter is said to be an <em>open array</em>, and the corresponding actual parameter may be of arbitrary length.</p>
 
@@ -771,12 +751,12 @@ to several types of operands. v stands for a variable, x and n for expressions, 
 
 <div><table>
   <tr><th>Name</th><th>Argument types</th><th>Result type</th><th>Function</th></tr>
-  <tr><td>ABS(x)</td><td>x: numeric type</td><td>type of x</td><td>absolute value</td></tr>
-  <tr><td>ODD(x)</td><td>x: INTEGER</td><td>BOOLEAN</td><td>x MOD 2 = 1</td></tr>
-  <tr><td>LEN(v)</td><td>v: array</td><td>INTEGER</td><td>the length of v</td></tr>
-  <tr><td>LSL(x, n)</td><td>x, n: INTEGER</td><td>INTEGER</td><td>logical shift left, x * 2<sup>n</sup></td></tr>
-  <tr><td>ASR(x, n)</td><td>x, n: INTEGER</td><td>INTEGER</td><td>signed shift right, x DIV 2<sup>n</sup></td></tr>
-  <tr><td>ROR(x, n)</td><td>x, n: INTEGER</td><td>INTEGER</td><td>x rotated right by n bits</td></tr>
+  <tr><td><code>ABS(x)</code></td><td>x: numeric type</td><td>type of x</td><td>absolute value</td></tr>
+  <tr><td><code>ODD(x)</code></td><td>x: INTEGER</td><td>BOOLEAN</td><td>x MOD 2 = 1</td></tr>
+  <tr><td><code>LEN(v)</code></td><td>v: array</td><td>INTEGER</td><td>the length of v</td></tr>
+  <tr><td><code>LSL(x, n)</code></td><td>x, n: INTEGER</td><td>INTEGER</td><td>logical shift left, x * 2<sup>n</sup></td></tr>
+  <tr><td><code>ASR(x, n)</code></td><td>x, n: INTEGER</td><td>INTEGER</td><td>signed shift right, x DIV 2<sup>n</sup></td></tr>
+  <tr><td><code>ROR(x, n)</code></td><td>x, n: INTEGER</td><td>INTEGER</td><td>x rotated right by n bits</td></tr>
 </table></div>
 
 
@@ -784,26 +764,26 @@ to several types of operands. v stands for a variable, x and n for expressions, 
 
 <div><table>
   <tr><th>Name</th><th>Argument types</th><th>Result type</th><th>Function</th></tr>
-  <tr><td>FLOOR(x)</td><td>REAL</td><td>INTEGER</td><td>round down</td></tr>
-  <tr><td>FLT(x)</td><td>INTEGER</td><td>REAL</td><td>identity</td></tr>
-  <tr><td>ORD(x)</td><td>CHAR, BOOLEAN, SET</td><td>INTEGER</td><td>ordinal number of x</td></tr>
-  <tr><td>CHR(x)</td><td>INTEGER</td><td>CHAR</td><td>character with ordinal number x</td></tr>
+  <tr><td><code>FLOOR(x)</code></td><td>REAL</td><td>INTEGER</td><td>round down</td></tr>
+  <tr><td><code>FLT(x)</code></td><td>INTEGER</td><td>REAL</td><td>identity</td></tr>
+  <tr><td><code>ORD(x)</code></td><td>CHAR, BOOLEAN, SET</td><td>INTEGER</td><td>ordinal number of x</td></tr>
+  <tr><td><code>CHR(x)</code></td><td>INTEGER</td><td>CHAR</td><td>character with ordinal number x</td></tr>
 </table></div>
 
 <p><em>Proper procedures:</em></p>
 
 <div><table>
   <tr><th>Name      </th><th>Argument types </th><th>Function</th></tr>
-  <tr><td>INC(v)    </td><td>INTEGER        </td><td>v := v + 1</td></tr>
-  <tr><td>INC(v, n) </td><td>INTEGER        </td><td>v := v + n</td></tr>
-  <tr><td>DEC(v)    </td><td>INTEGER        </td><td>v := v - 1</td></tr>
-  <tr><td>DEC(v, n) </td><td>INTEGER        </td><td>v := v - n</td></tr>
-  <tr><td>INCL(v, x)</td><td>v: SET; x: INTEGER</td><td>v := v + {x}</td></tr>
-  <tr><td>EXCL(v, x)</td><td>v: SET; x: INTEGER</td><td>v := v - {x}</td></tr>
-  <tr><td>NEW(v)    </td><td>pointer type   </td><td>allocate v^</td></tr>
-  <tr><td>ASSERT(b) </td><td>BOOLEAN        </td><td>abort, if ~b</td></tr>
-  <tr><td>PACK(x, n)</td><td>REAL; INTEGER  </td><td>pack x and n into x</td></tr>
-  <tr><td>UNPK(x, n)</td><td>REAL; INTEGER  </td><td>unpack x into x and n</td></tr>
+  <tr><td><code>INC(v)</code>    </td><td>INTEGER        </td><td>v := v + 1</td></tr>
+  <tr><td><code>INC(v, n)</code> </td><td>INTEGER        </td><td>v := v + n</td></tr>
+  <tr><td><code>DEC(v)</code>    </td><td>INTEGER        </td><td>v := v - 1</td></tr>
+  <tr><td><code>DEC(v, n)</code> </td><td>INTEGER        </td><td>v := v - n</td></tr>
+  <tr><td><code>INCL(v, x)</code></td><td>v: SET; x: INTEGER</td><td>v := v + {x}</td></tr>
+  <tr><td><code>EXCL(v, x)</code></td><td>v: SET; x: INTEGER</td><td>v := v - {x}</td></tr>
+  <tr><td><code>NEW(v)</code>    </td><td>pointer type   </td><td>allocate v^</td></tr>
+  <tr><td><code>ASSERT(b)</code> </td><td>BOOLEAN        </td><td>abort, if ~b</td></tr>
+  <tr><td><code>PACK(x, n)</code>/td><td>REAL; INTEGER  </td><td>pack x and n into x</td></tr>
+  <tr><td><code>UNPK(x, n)</code></td><td>REAL; INTEGER  </td><td>unpack x into x and n</td></tr>
 </table></div>
 
 <p>The function FLOOR(x) yields the largest integer not greater than x.</p>
@@ -872,17 +852,17 @@ END Out.
 <p><em>Function procedures:</em></p>
 <div><table>
   <tr><th>Name      </th><th>Argument types </th><th>Result type</th><th>Function             </th></tr>
-  <tr><td>ADR(v)    </td><td>any            </td><td>INTEGER    </td><td>address of variable v</td></tr>
-  <tr><td>SIZE(T)   </td><td>any type       </td><td>INTEGER    </td><td>size in bytes        </td></tr>
-  <tr><td>BIT(a, n) </td><td>a, n: INTEGER  </td><td>BOOLEAN    </td><td>bit n of mem[a]      </td></tr>
+  <tr><td><code>ADR(v)</code>    </td><td>any            </td><td>INTEGER    </td><td>address of variable v</td></tr>
+  <tr><td><code>SIZE(T)</code>   </td><td>any type       </td><td>INTEGER    </td><td>size in bytes        </td></tr>
+  <tr><td><code>BIT(a, n)</code> </td><td>a, n: INTEGER  </td><td>BOOLEAN    </td><td>bit n of mem[a]      </td></tr>
 </table></div>
 
 <p><em>Proper procedures:</em></p>
 <div><table>
   <tr><th>Name              </th><th>Argument types               </th><th>Function</th></tr>
-  <tr><td>GET(a, v)         </td><td>a: INTEGER; v: any basic type</td><td>v := mem[a]</td></tr>
-  <tr><td>PUT(a, x)         </td><td>a: INTEGER; x: any basic type</td><td>mem[a] := x</td></tr>
-  <tr><td>COPY(src, dst, n) </td><td>all INTEGER                  </td><td>copy <em>n</em> consecutive words from <em>src</em> to <em>dst</em></td></tr>
+  <tr><td><code>GET(a, v)</code>         </td><td>a: INTEGER; v: any basic type</td><td>v := mem[a]</td></tr>
+  <tr><td><code>PUT(a, x)</code>         </td><td>a: INTEGER; x: any basic type</td><td>mem[a] := x</td></tr>
+  <tr><td><code>COPY(src, dst, n)</code> </td><td>all INTEGER                  </td><td>copy <em>n</em> consecutive words from <em>src</em> to <em>dst</em></td></tr>
 </table></div>
 
 <p>The following are additional procedures accepted by the compiler for the RISC processor:</p>
@@ -891,11 +871,11 @@ END Out.
 
 <div><table>
   <tr><th>Name      </th><th>Argument types </th><th>Result type</th><th>Function</th></tr>
-  <tr><td>VAL(T, n) </td><td>scalar         </td><td>T          </td><td>identity</td></tr>
-  <tr><td>ADC(m, n) </td><td>INTEGER        </td><td>INTEGER    </td><td>add with carry C</td></tr>
-  <tr><td>SBC(m, n) </td><td>INTEGER        </td><td>INTEGER    </td><td>subtract with carry C</td></tr>
-  <tr><td>UML(m, n) </td><td>INTEGER        </td><td>INTEGER    </td><td>unsigned multiplication</td></tr>
-  <tr><td>COND(n)   </td><td>INTEGER        </td><td>BOOLEAN    </td><td>IF Cond(n) THEN ...</td></tr>
+  <tr><td><code>VAL(T, n)</code> </td><td>scalar         </td><td>T          </td><td>identity</td></tr>
+  <tr><td><code>ADC(m, n)</code> </td><td>INTEGER        </td><td>INTEGER    </td><td>add with carry C</td></tr>
+  <tr><td><code>SBC(m, n)</code> </td><td>INTEGER        </td><td>INTEGER    </td><td>subtract with carry C</td></tr>
+  <tr><td><code>UML(m, n)</code> </td><td>INTEGER        </td><td>INTEGER    </td><td>unsigned multiplication</td></tr>
+  <tr><td><code>COND(n)</code>   </td><td>INTEGER        </td><td>BOOLEAN    </td><td>IF Cond(n) THEN ...</td></tr>
 </table></div>
 
 
@@ -1036,10 +1016,10 @@ import = ident [":=" ident].
   <li><details open><summary><a href='#r6.'>Описания типов</a></summary>
     <ol>
     <li><a href='#r6.1'>Базовые типы</a></li>
-    <li><a href='#r6.2'>Типы массив</a></li>
-    <li><a href='#r6.3'>Типы запись</a></li>
-    <li><a href='#r6.4'>Типы указатель</a></li>
-    <li><a href='#r6.5'>Процедурный тип</a></li>
+    <li><a href='#r6.2'>Массивовые типы</a></li>
+    <li><a href='#r6.3'>Записевые типы</a></li>
+    <li><a href='#r6.4'>Указательные типы</a></li>
+    <li><a href='#r6.5'>Процедурные типы</a></li>
     </ol></details></li>
   <li><a href='#r7.'>Описания переменных</a></li>
   <li><details open><summary><a href='#r8.'>Выражения</a></summary>
@@ -1082,7 +1062,7 @@ import = ident [":=" ident].
 
 <p>Язык — это бесконечное множество высказываний, правильно составленных согласно его синтаксису. В Обероне эти высказывания называются единицами компиляции. Каждая единица представляет собой конечную последовательность символов из конечного словаря. Словарь Оберона состоит из идентификаторов, чисел, строк, операций, разделителей и комментариев, называмых <em>лексемами</em> и состоящих из цепочек <em>литер</em>.</p>
 
-<p>Для описания синтаксиса использована расширенная Бэкуса — Наура форма (РБНФ). Скобки [ и ] обозначают необязательность заключённого выражения, а { и } — его повторение (от 0 раз). Синтаксические сущности (нетерминальные лексемы) обозначены словами, выражающими их интуитивный смысл. Лексемы словаря языка (терминальные лексемы) представлены строками в кавычках и словами из заглавных букв.</p>
+<p>Для описания синтаксиса использована расширенная Бэкуса-Наура форма (РБНФ). Скобки [ и ] обозначают необязательность заключённого выражения, а { и } — его повторение (от 0 раз). Синтаксические сущности (нетерминальные лексемы) обозначены словами, выражающими их интуитивный смысл. Лексемы словаря языка (терминальные лексемы) представлены строками в кавычках и словами из заглавных букв.</p>
 
 <h2 id='r3.'>3. Словарь</h2>
 
@@ -1157,7 +1137,7 @@ import = ident [":=" ident].
 идентОпр   =  идент ["*"].
 </pre>
 
-<p>Следующие идентификаторы являются предопределёнными; их значение о пределено в разделах <a href='#r6.1'>6.1</a> (типы) и <a href='#r10.2'>10.2</a> (процедуры):</p>
+<p>Следующие идентификаторы являются предопределёнными; их значение определено в разделах <a href='#r6.1'>6.1</a> (типы) и <a href='#r10.2'>10.2</a> (процедуры):</p>
 
 <div><table>
   <tr><td>ABS </td><td>ASR</td><td>ASSERT </td><td>BOOLEAN</td><td>BYTE </td></tr>
@@ -1267,7 +1247,7 @@ ARRAY 10, 20 OF REAL
 
 <p>Типы-записи расширяемы, то есть запись может задаваться как расширение другой записи. В приведённых выше <a href='#r6.-eg'>примерах</a> <em>CenterNode</em> (напрямую) расширяет <em>Node</em>, являющегося (прямым) типом-основой <em>CenterNode</em>. А именно, <em>CenterNode</em> расширяет <em>Node</em> полями <em>name</em> и <em>subnode</em>.</p>
 
-<p><em>Определение</em>: тип <em>T</em> расширяет тип <em>T0</em>, если он и есть <em>T0</em>, или если он непосредственно расширяет <em>T0</em>. И наоборот, тип <em>T0</em> является типом-основой для типа <em>T</em>, если он и есть <em>T</em>, или если он является прямым типом-основной базового типа <em>T</em>.</p>
+<p><em>Определение</em>: тип <em>T</em> расширяет тип <em>T0</em>, если он и есть <em>T0</em>, или непосредственно расширяет расширение <em>T0</em>. И наоборот, тип <em>T0</em> является типом-основой для типа <em>T</em>, если он и есть <em>T</em>, или он является прямой основой типа-основы <em>T</em>.</p>
 
 <p>Примеры записевых типов:</p>
 <pre>
@@ -1331,7 +1311,7 @@ t:       Tree
 
 <p>Если <em>A</em> обозначает массив, то <em>A[E]</em> обозначает тот элемент <em>A</em>, индекс которого является текущим значением выражения <em>E</em>. Результат <em>E</em> должен иметь тип INTEGER. Обозначение вида <em>A[E1, E2, ..., En]</em> значит <em>A[E1][E2]...[En]</em>. Если <em>p</em> обозначает переменную-указатель, <em>p^</em> обозначает переменную, на которую ссылается <em>p</em>. Если <em>r</em> обозначает запись, то <em>r.f</em> обозначает поле <em>f</em> из записи <em>r</em>. Если <em>p</em> обозначает указатель, <em>p.f</em> обозначает поле <em>f</em> записи <em>p^</em>, то есть точка подразумевает разыменование, и <em>p.f</em> означает <em>p^.f</em>.</p>
 
-<p>Охрана типа <em>v(Т0)</em> обеспечивает, чтобы <em>v</em> имел тип <em>T0</em>, то есть охрана типа прекращает выполнение программы, если <em>v</em> имеет тип отличный от <em>T0</em>. Охрана применима, если:</p>
+<p>Охрана типа <em>v(Т0)</em> утверждает, что <em>v</em> имеет тип <em>T0</em>, то есть прекращает выполнение программы, если <em>v</em> не имеет тип <em>T0</em>. Охрана применима, если:</p>
 <ol>
 <li><em>T0</em> является расширением описанного типа <em>T</em> в <em>v</em>, и если </li>
 <li><em>v</em> — переменный параметр типа запись, или <em>v</em> — указатель. </li>
@@ -1766,7 +1746,7 @@ END log2
 </pre>
 
 
-<h3 id='r10.2'>10.2 Предопределённые процедуры-функции</h3>
+<h3 id='r10.2'>10.2 Предопределённые процедуры</h3>
 
 <p>Следующая таблица содержит список предопределённых процедур. Некоторые процедуры — обобщенные, то есть применимые к нескольким типам операндов. Буква v обозначает переменную, x и n — выражения, T — тип.</p>
 
@@ -1774,38 +1754,38 @@ END log2
 
 <div><table>
   <tr><th>Имя       </th><th>Типы аргументов</th><th>Тип результата </th><th>Функция</th></tr>
-  <tr><td>ABS(x)    </td><td>x: числовой тип</td><td>тип x          </td><td>абсолютное значение</td></tr>
-  <tr><td>ODD(x)    </td><td>x: INTEGER     </td><td>BOOLEAN        </td><td>x MOD 2 = 1</td></tr>
-  <tr><td>LEN(v)    </td><td>v: array       </td><td>INTEGER        </td><td>длина v</td></tr>
-  <tr><td>LSL(x, n) </td><td>x, n: INTEGER  </td><td>INTEGER        </td><td>логический сдвиг влево, x * 2<sup>n</sup></td></tr>
-  <tr><td>ASR(x, n) </td><td>x, n: INTEGER  </td><td>INTEGER        </td><td>сдвиг вправо со знаком, x DIV 2<sup>n</sup></td></tr>
-  <tr><td>ROR(x, n) </td><td>x, n: INTEGER  </td><td>INTEGER        </td><td>вращение x вправо на n бит</td></tr>
+  <tr><td><code>ABS(x)</code>    </td><td>x: числовой тип</td><td>тип x          </td><td>абсолютное значение</td></tr>
+  <tr><td><code>ODD(x)</code>    </td><td>x: INTEGER     </td><td>BOOLEAN        </td><td>x MOD 2 = 1</td></tr>
+  <tr><td><code>LEN(v)</code>    </td><td>v: array       </td><td>INTEGER        </td><td>длина v</td></tr>
+  <tr><td><code>LSL(x, n)</code> </td><td>x, n: INTEGER  </td><td>INTEGER        </td><td>логический сдвиг влево, x * 2<sup>n</sup></td></tr>
+  <tr><td><code>ASR(x, n)</code> </td><td>x, n: INTEGER  </td><td>INTEGER        </td><td>сдвиг вправо со знаком, x DIV 2<sup>n</sup></td></tr>
+  <tr><td><code>ROR(x, n)</code> </td><td>x, n: INTEGER  </td><td>INTEGER        </td><td>вращение x вправо на n бит</td></tr>
 </table></div>
 
 <p><em>Функции приведения типа:</em></p>
 
 <div><table>
   <tr><th>Имя     </th><th>Типы аргументов</th><th>Тип результата </th><th>Функция                      </th></tr>
-  <tr><td>FLOOR(x)</td><td>REAL           </td><td>INTEGER        </td><td>округление к меньшему        </td></tr>
-  <tr><td>FLT(x)  </td><td>INTEGER        </td><td>REAL           </td><td>тождество                    </td></tr>
-  <tr><td>ORD(x)  </td><td>CHAR, BOOLEAN, SET</td><td>INTEGER     </td><td>порядковый номер x           </td></tr>
-  <tr><td>CHR(x)  </td><td>INTEGER        </td><td>CHAR           </td><td>литера с порядковым номером x</td></tr>
+  <tr><td><code>FLOOR(x)</code></td><td>REAL           </td><td>INTEGER        </td><td>округление к меньшему        </td></tr>
+  <tr><td><code>FLT(x)</code>  </td><td>INTEGER        </td><td>REAL           </td><td>тождество                    </td></tr>
+  <tr><td><code>ORD(x)</code>  </td><td>CHAR, BOOLEAN, SET</td><td>INTEGER     </td><td>порядковый номер x           </td></tr>
+  <tr><td><code>CHR(x)</code>  </td><td>INTEGER        </td><td>CHAR           </td><td>литера с порядковым номером x</td></tr>
 </table></div>
 
 <p><em>Обычные процедуры:</em></p>
 
 <div><table>
   <tr><th>Имя       </th><th>Типы аргументов    </th><th>Функция                </th></tr>
-  <tr><td>INC(v)    </td><td>INTEGER            </td><td>v := v + 1             </td></tr>
-  <tr><td>INC(v, n) </td><td>INTEGER            </td><td>v := v + n             </td></tr>
-  <tr><td>DEC(v)    </td><td>INTEGER            </td><td>v := v - 1             </td></tr>
-  <tr><td>DEC(v, n) </td><td>INTEGER            </td><td>v := v - n             </td></tr>
-  <tr><td>INCL(v, x)</td><td>v: SET; x: INTEGER </td><td>v := v + {x}           </td></tr>
-  <tr><td>EXCL(v, x)</td><td>v: SET; x: INTEGER </td><td>v := v - {x}           </td></tr>
-  <tr><td>NEW(v)    </td><td>тип указатель      </td><td>размещение v^          </td></tr>
-  <tr><td>ASSERT(b) </td><td>BOOLEAN            </td><td>прерывание, если ~b    </td></tr>
-  <tr><td>PACK(x, n)</td><td>REAL; INTEGER      </td><td>упаковка x и n в x     </td></tr>
-  <tr><td>UNPK(x, n)</td><td>REAL; INTEGER      </td><td>распаковка из x в x и n</td></tr>
+  <tr><td><code>INC(v)</code>    </td><td>INTEGER            </td><td>v := v + 1             </td></tr>
+  <tr><td><code>INC(v, n)</code> </td><td>INTEGER            </td><td>v := v + n             </td></tr>
+  <tr><td><code>DEC(v)</code>    </td><td>INTEGER            </td><td>v := v - 1             </td></tr>
+  <tr><td><code>DEC(v, n)</code> </td><td>INTEGER            </td><td>v := v - n             </td></tr>
+  <tr><td><code>INCL(v, x)</code></td><td>v: SET; x: INTEGER </td><td>v := v + {x}           </td></tr>
+  <tr><td><code>EXCL(v, x)</code></td><td>v: SET; x: INTEGER </td><td>v := v - {x}           </td></tr>
+  <tr><td><code>NEW(v)</code>    </td><td>тип указатель      </td><td>выделение v^           </td></tr>
+  <tr><td><code>ASSERT(b)</code> </td><td>BOOLEAN            </td><td>прерывание, если ~b    </td></tr>
+  <tr><td><code>PACK(x, n)</code></td><td>REAL; INTEGER      </td><td>упаковка x и n в x     </td></tr>
+  <tr><td><code>UNPK(x, n)</code></td><td>REAL; INTEGER      </td><td>распаковка из x в x и n</td></tr>
 </table></div>
 
 <p>Функция FLOOR(x) возвращает наибольшее целое, не превышающее x.</p>
@@ -1896,17 +1876,17 @@ END Out.
 <p><em>Процедуры-функции:</em></p>
 <div><table>
   <tr><th>Имя       </th><th>Типы аргументов</th><th>Тип результата </th><th>Функция           </th></tr>
-  <tr><td>ADR(v)    </td><td>любой          </td><td>INTEGER        </td><td>адрес переменной v</td></tr>
-  <tr><td>SIZE(T)   </td><td>любой тип      </td><td>INTEGER        </td><td>размер в байтах   </td></tr>
-  <tr><td>BIT(a, n) </td><td>a, n: INTEGER  </td><td>BOOLEAN        </td><td>бит n из mem[a]   </td></tr>
+  <tr><td><code>ADR(v)</code>    </td><td>любой          </td><td>INTEGER        </td><td>адрес переменной v</td></tr>
+  <tr><td><code>SIZE(T)</code>   </td><td>любой тип      </td><td>INTEGER        </td><td>размер в байтах   </td></tr>
+  <tr><td><code>BIT(a, n)</code> </td><td>a, n: INTEGER  </td><td>BOOLEAN        </td><td>бит n из mem[a]   </td></tr>
 </table></div>
 
 <p><em>Обычные процедуры:</em></p>
 <div><table>
   <tr><th>Имя               </th><th>Типы аргументов                  </th><th>Функция</th></tr>
-  <tr><td>GET(a, v)         </td><td>a: INTEGER; v: любой базовый тип </td><td>v := mem[a]</td></tr>
-  <tr><td>PUT(a, x)         </td><td>a: INTEGER; x: любой базовый тип </td><td>mem[a] := x</td></tr>
-  <tr><td>COPY(src, dst, n) </td><td>все INTEGER                      </td><td>копирует подряд <em>n</em> слов из <em>src</em> в <em>dst</em></td></tr>
+  <tr><td><code>GET(a, v)</code>         </td><td>a: INTEGER; v: любой базовый тип </td><td>v := mem[a]</td></tr>
+  <tr><td><code>PUT(a, x)</code>         </td><td>a: INTEGER; x: любой базовый тип </td><td>mem[a] := x</td></tr>
+  <tr><td><code>COPY(src, dst, n)</code> </td><td>все INTEGER                      </td><td>копирует подряд <em>n</em> слов из <em>src</em> в <em>dst</em></td></tr>
 </table></div>
 
 <p>Ниже приведены дополнительные процедуры, поддерживаемые компилятором для RISC-процессора:</p>
@@ -1915,11 +1895,11 @@ END Out.
 
 <div><table>
   <tr><th>Имя       </th><th>Типы аргументов</th><th>Тип результата</th><th>Функция</th></tr>
-  <tr><td>VAL(T, n) </td><td>скаляр         </td><td>T          </td><td>тождество</td></tr>
-  <tr><td>ADC(m, n) </td><td>INTEGER        </td><td>INTEGER    </td><td>сложение с флагом переноса C</td></tr>
-  <tr><td>SBC(m, n) </td><td>INTEGER        </td><td>INTEGER    </td><td>вычитание с флагом переноса C</td></tr>
-  <tr><td>UML(m, n) </td><td>INTEGER        </td><td>INTEGER    </td><td>беззнаковое умножение</td></tr>
-  <tr><td>COND(n)   </td><td>INTEGER        </td><td>BOOLEAN    </td><td>IF Cond(n) THEN ...</td></tr>
+  <tr><td><code>VAL(T, n)</code> </td><td>скаляр </td><td>T          </td><td>тождество</td></tr>
+  <tr><td><code>ADC(m, n)</code> </td><td>INTEGER</td><td>INTEGER    </td><td>сложение с флагом переноса C</td></tr>
+  <tr><td><code>SBC(m, n)</code> </td><td>INTEGER</td><td>INTEGER    </td><td>вычитание с флагом переноса C</td></tr>
+  <tr><td><code>UML(m, n)</code> </td><td>INTEGER</td><td>INTEGER    </td><td>беззнаковое умножение</td></tr>
+  <tr><td><code>COND(n)</code>   </td><td>INTEGER</td><td>BOOLEAN    </td><td>IF Cond(n) THEN ...</td></tr>
 </table></div>
 
 <p><em>Обычные процедуры:</em></p>
