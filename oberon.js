@@ -1,6 +1,25 @@
-window.onload = function() {
+window.onload = function() { 'use strict';
+  function pushNodeForAlign(nodes, on, tn) {
+    var oh, th, diff, node;
+
+    oh = on.offsetHeight;
+    th = tn.offsetHeight;
+
+    if (oh != th) {
+      if (oh < th) {
+        diff = th - oh;
+        node = on;
+      } else {
+        diff = oh - th;
+        node = tn;
+      }
+      nodes.push(node);
+      nodes.push(parseFloat(getComputedStyle(node).getPropertyValue('padding-bottom')) + diff + 'px');
+    }
+  }
+
   function alignNodes(content) {
-    var diff, node, onodes, tnodes, on, tn, oh, th, i, nodes;
+    var onodes, tnodes, i, nodes;
 
     onodes = content[0].childNodes;
     tnodes = content[1].childNodes;
@@ -9,23 +28,8 @@ window.onload = function() {
     i = onodes.length;
     while (i > 0) {
       i -= 1;
-      on = onodes[i];
-      tn = tnodes[i];
-      if (on.nodeType === Node.ELEMENT_NODE) {
-        oh = on.offsetHeight;
-        th = tn.offsetHeight;
-
-        if (oh != th) {
-          if (oh < th) {
-            diff = th - oh;
-            node = on;
-          } else {
-            diff = oh - th;
-            node = tn;
-          }
-          nodes.push(node);
-          nodes.push(parseFloat(getComputedStyle(node).getPropertyValue('padding-bottom')) + diff + 'px');
-        }
+      if (onodes[i].nodeType === Node.ELEMENT_NODE) {
+        pushNodeForAlign(nodes, onodes[i], tnodes[i]);
       }
     }
     requestAnimationFrame(function() {
@@ -39,8 +43,7 @@ window.onload = function() {
   }
 
   function initToggle(toggle1, doc, toggle2) {
-    var onclick;
-    onclick = function(event) {
+    function onclick(event) {
       var style, classes;
       style = document.getElementById(doc).style;
       classes = document.body.classList;
@@ -54,7 +57,7 @@ window.onload = function() {
         classes.remove('both');
         style.display = 'none';
       }
-    };
+    }
     document.getElementById(toggle1).onclick = onclick;
     return onclick;
   }
@@ -96,7 +99,7 @@ window.onload = function() {
   eng = document.getElementById('toggleeng').checked;
   rus = document.getElementById('togglerus').checked;
   /* браузер может сохранять состояние элементов input checked, но при программном считывании
-   * всё равно могут быть false */
+   * всё равно могут быть false, будто и не сохранено */
   if (eng) {
     if (rus) {
       onrus({target : {checked : true}}); 
@@ -106,10 +109,11 @@ window.onload = function() {
   }
   document.addEventListener('keydown', function(event) {
     if (!event.ctrlKey || !event.altKey) {
+      ;
     } else if (event.code == 'KeyE') {
       oneng({target : {checked : true}});
     } else if (event.code == 'KeyR') {
       onrus({target : {checked : true}}); 
-    } 
+    }
   });
 };
