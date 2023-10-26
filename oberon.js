@@ -102,7 +102,7 @@ window.onload = function() { 'use strict';
    * всё равно могут быть false, будто и не сохранено */
   if (eng) {
     if (rus) {
-      onrus({target : {checked : true}}); 
+      onrus({target : {checked : true}});
     }
   } else if (window.navigator.language.startsWith('ru')) {
     torus();
