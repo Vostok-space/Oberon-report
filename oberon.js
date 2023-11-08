@@ -96,11 +96,14 @@ window.onload = function() { 'use strict';
   oneng = initToggle('toggleeng', 'endoc', 'togglerus');
   initSwitch('onlyeng', 'endoc', 'togglerus', 'rudoc');
 
-  eng = document.getElementById('toggleeng').checked;
-  rus = document.getElementById('togglerus').checked;
   /* браузер может сохранять состояние элементов input checked, но при программном считывании
    * всё равно могут быть false, будто и не сохранено */
-  if (eng) {
+  eng = document.getElementById('toggleeng').checked;
+  rus = document.getElementById('togglerus').checked;
+
+  if (window.location.hash == '#endoc') {
+    ;
+  } else if (eng) {
     if (rus) {
       onrus({target : {checked : true}});
     }
