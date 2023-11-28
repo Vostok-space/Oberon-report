@@ -133,12 +133,11 @@ a.self::before { content: attr(href); }
 }
 @media (max-width: 500px) {
   div.content { padding  : 0 10px 10px 10px; }
-  body {margin: 5px;}
   pre, #syntax ~ pre { margin-left: 20px; }
   table { margin-left: 20px; }
 }
 @media (max-width: 400px) {
-  div.content { padding: 5px;}
+  div.content { padding: 0 5px 5px 5px;}
   body {margin: 0;}
   pre, #syntax ~ pre { margin-left: 10px; }
   table { margin-left: 10px; }
