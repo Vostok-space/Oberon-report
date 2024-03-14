@@ -115,6 +115,11 @@ code {
   white-space: nowrap;
 }
 
+*[title] {
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.1);
+}
+
 a.self::before { content: attr(href); }
 
 @media (max-width: 1360px) {
