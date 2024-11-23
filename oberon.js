@@ -42,21 +42,42 @@ window.onload = function() { 'use strict';
     });
   }
 
+  function closeDetails() {
+    var d, i;
+    d = document.getElementsByTagName('details');
+    i = d.length;
+    while (i > 0) {
+      i -= 1;
+      d[i].removeAttribute('open');
+    }
+  }
+
   function initToggle(toggle1, doc, toggle2) {
     function onclick(event) {
-      var style, classes;
+      var style, classes, t1, t2, checked;
       style = document.getElementById(doc).style;
       classes = document.body.classList;
-      if (event.target.checked) {
+      t1 = document.getElementById(toggle1);
+      t2 = document.getElementById(toggle2);
+      if (event.target.toggle) {
+        checked = !t2.checked;
+        t2.checked = checked;
+      } else {
+        checked = event.target.checked;
+        if (checked) {
+          t1.checked = true;
+          t2.checked = true;
+        }
+      }
+      if (checked) {
         classes.add('both');
-        document.getElementById(toggle1).checked = true;
-        document.getElementById(toggle2).checked = true;
         style.display = 'block';
         alignNodes(document.getElementsByClassName('content'));
       } else {
         classes.remove('both');
         style.display = 'none';
       }
+      closeDetails();
     }
     document.getElementById(toggle1).onclick = onclick;
     return onclick;
@@ -68,6 +89,7 @@ window.onload = function() { 'use strict';
     toggle1 = label1.nextElementSibling;
 
     label1.onclick = function() {
+      closeDetails();
       document.body.classList.remove('both');
       document.getElementById(doc1).style.display = 'block';
       document.getElementById(doc2).style.display = 'none';
@@ -75,16 +97,6 @@ window.onload = function() { 'use strict';
       document.getElementById(toggle2).checked = false;
     }
     return label1.onclick;
-  }
-
-  function closeDetails() {
-    var d, i;
-    d = document.getElementsByTagName('details');
-    i = d.length;
-    while (i > 0) {
-      i -= 1;
-      d[i].removeAttribute('open');
-    }
   }
 
   var torus, onrus, oneng, eng, rus;
@@ -114,9 +126,9 @@ window.onload = function() { 'use strict';
     if (!event.ctrlKey || !event.altKey) {
       ;
     } else if (event.code == 'KeyE') {
-      oneng({target : {checked : true}});
+      oneng({target : {toggle : true}});
     } else if (event.code == 'KeyR') {
-      onrus({target : {checked : true}}); 
+      onrus({target : {toggle : true}});
     }
   });
 };
