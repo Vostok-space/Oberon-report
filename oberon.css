@@ -103,7 +103,7 @@ p {
   margin-bottom: 0.5em;
 }
 
-div#rudoc p { hyphens: auto; }
+div.doc p { hyphens: auto; }
 
 details       > summary       { list-style: none; }
 details       > summary:after { content: '+';  margin-left: 10px; opacity: 0.4; }
