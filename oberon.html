@@ -982,6 +982,12 @@ import = ident [":=" ident].
 <div lang='ru' class='doc' id='rudoc'>
 
 <details open><summary><a>☰</a></summary>
+
+<p><a href="https://www.inf.ethz.ch/personal/wirth/Oberon/Oberon07.Report.pdf">PDF-первоисточник</a><br/>
+<a id='onlyeng' href='#endoc'>Английский текст</a><input type='checkbox' class='toggledoc' id='toggleeng'/><br/>
+<a href='https://github.com/Vostok-space/Oberon-report'>Исходный код HTML</a>
+</p>
+
 <p>Изначально переведено <a href='https://molpit.org/member/DIA'>Иваном Денисовым</a> c использованием переводов:</p>
 <ul>
   <li><a href='https://pm.vogu35.ru/oberon/o2rus.htm'>Сергея Свердлова</a></li>
@@ -992,10 +998,7 @@ import = ident [":=" ident].
 </ul>
 <p>Замечания по переводу: Александр Ширяев, Артур Ефимов, Александр Легалов и другие.<br/>
 Отредактировано comdivbyzero.</p>
-<p><a href="https://www.inf.ethz.ch/personal/wirth/Oberon/Oberon07.Report.pdf">PDF-первоисточник</a><br/>
-<a id='onlyeng' href='#endoc'>Английский текст</a><input type='checkbox' class='toggledoc' id='toggleeng'/><br/>
-<a href='https://github.com/Vostok-space/Oberon-report'>Исходный код HTML</a>
-</p>
+
 </details>
 
 <div class='content'>
@@ -1668,7 +1671,7 @@ WHILE v >= end DO S; v := v + inc END
 ЗаголовокПроцедуры  = PROCEDURE идентОпр [ФормальныеПараметры].
 ТелоПроцедуры       = РядОписаний [BEGIN РядОператоров]
                       [RETURN выражение] END.
-РядОписаний      = [CONST {ОписаниеКонстант ";"}]
+РядОписаний         = [CONST {ОписаниеКонстант ";"}]
                       [TYPE {ОписаниеТипов ";"}]
                       [VAR {ОписаниеПеременных ";"}]
                       {ОписаниеПроцедуры ";"}.
